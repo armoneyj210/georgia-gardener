@@ -1,7 +1,8 @@
 const express = require("express");
 const app = express();
 
-const { plantRouter } = require("./controllers/plant.js/index.js");
+const { plantRouter } = require("./controllers/plant.js");
+const { chemicalRouter } = require("./controllers/chemical.js");
 
 /* Step 3
  *
@@ -32,6 +33,7 @@ app.use(express.static(`${__dirname}/client/build`));
  * the paths defined in the router.
  */
 app.use("/api/gardener", plantRouter);
+app.use("/api/chemical", chemicalRouter);
 
 /* Step 5
  *

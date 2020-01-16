@@ -6,7 +6,7 @@ const plantRouter = express.Router();
 
 plantRouter.get("/", (req, res) => {
   plantApi
-    .getAllPlants()
+    .getPlants()
     .then(allPlants => {
       res.json(allPlants);
     })
@@ -18,7 +18,7 @@ plantRouter.get("/", (req, res) => {
 });
 plantRouter.get("/:id", (req, res) => {
   plantApi
-    .getPlant(req.params.id)
+    .getPlantbyId(req.params.id)
     .then(singlePlant => {
       res.json(singlePlant);
     })
@@ -30,7 +30,7 @@ plantRouter.get("/:id", (req, res) => {
 });
 plantRouter.post("/", (req, res) => {
   plantApi
-    .addNewPlant(req.body)
+    .createPlant(req.body)
     .then(plantCreated => {
       res.json(plantCreated);
     })

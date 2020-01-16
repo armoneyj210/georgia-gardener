@@ -6,7 +6,7 @@ const ChemicalSchema = new mongoose.Schema({
   description: String
 });
 
-const chemicalCollection = mongoose.model("Sample", ChemicalSchema);
+const chemicalCollection = mongoose.model("Chemical", ChemicalSchema);
 
 const getChemicals = () => {
   return chemicalCollection.find({});

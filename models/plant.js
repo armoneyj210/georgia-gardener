@@ -9,7 +9,7 @@ const PlantSchema = new mongoose.Schema({
   }
 });
 
-const plantCollection = mongoose.model("Sample", PlantSchema);
+const plantCollection = mongoose.model("Plant", PlantSchema);
 
 const getPlants = () => {
   return plantCollection.find({});
