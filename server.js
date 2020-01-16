@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 
-const { gardenerRouter } = require("./controllers/gardener.js");
+const { plantsRouter } = require("./controllers/plants.js");
 
 /* Step 3
  *
@@ -31,7 +31,7 @@ app.use(express.static(`${__dirname}/client/build`));
  * add router for the application to use. The first argument is a prefix to all
  * the paths defined in the router.
  */
-app.use("/api/gardener", gardenerRouter);
+app.use("/api/gardener", plantsRouter);
 
 /* Step 5
  *
