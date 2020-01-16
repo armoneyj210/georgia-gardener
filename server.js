@@ -3,7 +3,7 @@ const app = express();
 
 const { plantRouter } = require("./controllers/plant.js");
 const { chemicalRouter } = require("./controllers/chemical.js");
-
+const { diseaseRouter } = require("./controllers/disease.js");
 /* Step 3
  *
  * Register middleware...
@@ -34,6 +34,7 @@ app.use(express.static(`${__dirname}/client/build`));
  */
 app.use("/api/gardener", plantRouter);
 app.use("/api/chemical", chemicalRouter);
+app.use("/api/disease", diseaseRouter);
 
 /* Step 5
  *
