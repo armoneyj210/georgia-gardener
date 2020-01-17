@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import axios from "axios";
 export default class Diseases extends Component {
   state = {
     disease: [],
@@ -19,12 +19,17 @@ export default class Diseases extends Component {
   componentDidMount() {
     this.updatePage();
   }
+  handleToggleNewForm = () => {
+    this.setState(state => {
+      return { diseaseForm: !state.diseaseForm };
+    });
+  };
 
   render() {
     let diseases = this.state.disease.map(disease => {
       return (
         <div>
-          {disease.image}
+          <img src={disease.image} alt={disease.name} />
           <br />
           <h3>{disease.name}</h3>
           <br />
@@ -36,7 +41,7 @@ export default class Diseases extends Component {
       <div>
         <h1>Diseases</h1>
         <div>
-          <button>Add New Disease</button>
+          <button onClick={this.handleToggleNewForm}>Add New Disease</button>
         </div>
         <br />
         {this.state.diseaseForm ? (
