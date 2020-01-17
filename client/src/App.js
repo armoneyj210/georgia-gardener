@@ -14,7 +14,7 @@ export default class App extends Component {
             <Route exact path="/chemical" component={Chemical} />
             <Route exact path="/disease" component={Diseases} />
             <Route exact path="/plant" component={Plants} />
-            <Route exact path="/plant/plantId" component={SinglePlant} />
+            <Route path="/plant/:plantId" component={SinglePlant} />
           </Switch>
         </Router>
       </div>
