@@ -24,7 +24,11 @@ export default class Diseases extends Component {
       return { diseaseForm: !state.diseaseForm };
     });
   };
-
+  handleNewFormChange = evt => {
+    const newDisease = { ...this.state.newDisease };
+    newDisease[evt.target.name] = evt.target.value;
+    this.setState({ newDisease });
+  };
   render() {
     let diseases = this.state.disease.map(disease => {
       return (
@@ -52,6 +56,7 @@ export default class Diseases extends Component {
                 type="text"
                 name="name"
                 value={this.state.newDisease.name}
+                onChange={this.handleNewFormChange}
               />
             </div>
             <br />
@@ -61,6 +66,7 @@ export default class Diseases extends Component {
                 type="text"
                 name="description"
                 value={this.state.newDisease.description}
+                onChange={this.handleNewFormChange}
               />
             </div>
             <br />
@@ -70,6 +76,7 @@ export default class Diseases extends Component {
                 type="text"
                 name="image"
                 value={this.state.newDisease.image}
+                onChange={this.handleNewFormChange}
               />
             </div>
             <br />
