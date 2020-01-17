@@ -12,8 +12,8 @@ export default class Diseases extends Component {
   };
   updatePage = () => {
     axios.get("/api/disease").then(res => {
-      this.setState({ chemical: res.data });
-      console.log(this.state.chemical);
+      this.setState({ disease: res.data });
+      console.log(this.state.disease);
     });
   };
   componentDidMount() {
@@ -29,11 +29,27 @@ export default class Diseases extends Component {
     newDisease[evt.target.name] = evt.target.value;
     this.setState({ newDisease });
   };
+  handleSubmit = evt => {
+    evt.preventDefault();
+    axios.post("/api/disease", this.state.newDisease).then(() => {
+      this.setState({
+        diseaseForm: false,
+        newDisease: {
+          name: "",
+          image: "",
+          description: ""
+        }
+      });
+      this.updatePage();
+    });
+  };
   render() {
     let diseases = this.state.disease.map(disease => {
       return (
         <div>
-          <img src={disease.image} alt={disease.name} />
+          <div>
+            <img src={disease.image} alt={disease.name} />
+          </div>
           <br />
           <h3>{disease.name}</h3>
           <br />
@@ -49,7 +65,7 @@ export default class Diseases extends Component {
         </div>
         <br />
         {this.state.diseaseForm ? (
-          <form>
+          <form onSubmit={this.handleSubmit}>
             <div>
               <label htmlFor="disease-name">Name:</label>
               <input
