@@ -18,3 +18,7 @@ Georgia Gardener is an app that seeks to solve the problem of:"What's wrong with
 - [Trello](https://trello.com/b/5KaxDVNO/georgia-gardener)
 - [GitHub](https://github.com/armoneyj210/georgia-gardener)
 - [Deploy App]('#')
+
+## ERD and Wireframes
+
+![ERD](/desktop/GeorgiaGardener/GGERD.jpg)
