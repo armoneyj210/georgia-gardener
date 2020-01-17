@@ -12,9 +12,8 @@ export default class Plants extends Component {
     plantForm: false
   };
   updatePage = () => {
-    axios.get("/api/disease").then(res => {
-      this.setState({ disease: res.data });
-      console.log(this.state.disease);
+    axios.get("/api/gardener").then(res => {
+      this.setState({ plant: res.data });
     });
   };
   componentDidMount() {
@@ -24,6 +23,11 @@ export default class Plants extends Component {
     this.setState(state => {
       return { plantForm: !state.plantForm };
     });
+  };
+  handleNewFormChange = evt => {
+    const newPlant = { ...this.state.newPlant };
+    newPlant[evt.target.name] = evt.target.value;
+    this.setState({ newPlant });
   };
   render() {
     let plants = this.state.plant.map(plant => {
@@ -45,14 +49,19 @@ export default class Plants extends Component {
       <div>
         <h1>Plants</h1>
         <div>
-          <button>Add New Plant</button>
+          <button onClick={this.handleToggleNewForm}>Add New Plant</button>
         </div>
         <br />
         {this.state.plantForm ? (
           <form>
             <div>
               <label htmlFor="plant-name">Name:</label>
-              <input type="text" name="name" value={this.state.newPlant.name} />
+              <input
+                type="text"
+                name="name"
+                value={this.state.newPlant.name}
+                onChange={this.handleNewFormChange}
+              />
             </div>
             <br />
             <div>
@@ -61,6 +70,7 @@ export default class Plants extends Component {
                 type="text"
                 name="description"
                 value={this.state.newPlant.description}
+                onChange={this.handleNewFormChange}
               />
             </div>
             <br />
@@ -70,6 +80,7 @@ export default class Plants extends Component {
                 type="text"
                 name="image"
                 value={this.state.newPlant.image}
+                onChange={this.handleNewFormChange}
               />
             </div>
             <br />
@@ -79,6 +90,7 @@ export default class Plants extends Component {
                 type="text"
                 name="commonDisease"
                 value={this.state.newPlant.commonDisease}
+                onChange={this.handleNewFormChange}
               />
             </div>
             <br />
