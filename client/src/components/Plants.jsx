@@ -29,6 +29,21 @@ export default class Plants extends Component {
     newPlant[evt.target.name] = evt.target.value;
     this.setState({ newPlant });
   };
+  handleSubmit = evt => {
+    evt.preventDefault();
+    axios.post("/api/gardener", this.state.newPlant).then(() => {
+      this.setState({
+        plantForm: false,
+        newPlant: {
+          nmae: "",
+          image: "",
+          description: "",
+          commonDisease: ""
+        }
+      });
+      this.updatePage();
+    });
+  };
   render() {
     let plants = this.state.plant.map(plant => {
       return (
