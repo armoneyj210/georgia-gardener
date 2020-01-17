@@ -23,6 +23,23 @@ export default class SinglePlant extends Component {
       return { editForm: !state.editForm };
     });
   };
+  editFormChange = evt => {
+    const newPlant = { ...this.state.plants };
+    newPlant[evt.target.name] = evt.target.value;
+    this.setState({ plants: newPlant });
+  };
+  submitButtonAction = evt => {
+    evt.preventDefault();
+    axios
+      .put(
+        `/api/gardener/${this.props.match.params.plantId}`,
+        this.state.plants
+      )
+      .then(res => {
+        this.setState({ plants: res.data, editForm: false });
+        this.updatePage();
+      });
+  };
   render() {
     return (
       <div>
