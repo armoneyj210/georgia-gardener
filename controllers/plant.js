@@ -18,7 +18,7 @@ plantRouter.get("/", (req, res) => {
 });
 plantRouter.get("/:id", (req, res) => {
   plantApi
-    .getPlantbyId(req.params.id)
+    .getPlantById(req.params.id)
     .then(singlePlant => {
       res.json(singlePlant);
     })

@@ -15,7 +15,7 @@ const getPlants = () => {
   return plantCollection.find({});
 };
 
-const getPlantbyId = id => {
+const getPlantById = id => {
   return plantCollection.findById(id);
 };
 
@@ -32,7 +32,7 @@ const updatePlant = (id, updatedPlantObject) => {
 };
 module.exports = {
   getPlants,
-  getPlantbyId,
+  getPlantById,
   createPlant,
   deletePlant,
   updatePlant

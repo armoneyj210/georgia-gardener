@@ -12,7 +12,7 @@ const getChemicals = () => {
   return chemicalCollection.find({});
 };
 
-const getChemicalbyId = id => {
+const getChemicalById = id => {
   return chemicalCollection.findById(id);
 };
 
@@ -29,7 +29,7 @@ const updateChemical = (id, updatedChemicalObject) => {
 };
 module.exports = {
   getChemicals,
-  getChemicalbyId,
+  getChemicalById,
   createChemical,
   deleteChemical,
   updateChemical

@@ -12,7 +12,7 @@ const getDiseases = () => {
   return diseaseCollection.find({});
 };
 
-const getDiseasebyId = id => {
+const getDiseaseById = id => {
   return diseaseCollection.findById(id);
 };
 
@@ -29,7 +29,7 @@ const updateDisease = (id, updatedDiseaseObject) => {
 };
 module.exports = {
   getDiseases,
-  getDiseasebyId,
+  getDiseaseById,
   createDisease,
   deleteDisease,
   updateDisease
