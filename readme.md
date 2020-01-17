@@ -21,4 +21,4 @@ Georgia Gardener is an app that seeks to solve the problem of:"What's wrong with
 
 ## ERD and Wireframes
 
-![ERD](/desktop/GeorgiaGardener/GGERD.jpg)
+![ERD](https://i.imgur.com/cu3ap1c.jpg)
