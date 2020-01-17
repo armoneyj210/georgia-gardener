@@ -1,18 +1,19 @@
-import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import HelloWorld from './components/HelloWorld.js'
-import './App.css';
+import React, { Component } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-function App() {
-  return (
-    <div className="App">
-      <Router>
-        <Switch>
-          <Route exact path="/" component={HelloWorld}/>
-        </Switch>
-      </Router>
-    </div>
-  );
+import "./App.css";
+import Chemical from "./components/Chemical";
+
+export default class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        <Router>
+          <Switch>
+            <Route exact path="/chemical" component={Chemical} />
+          </Switch>
+        </Router>
+      </div>
+    );
+  }
 }
-
-export default App;
