@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { Redirect } from "react-router-dom";
 export default class SinglePlant extends Component {
   state = {
     plants: {
@@ -8,7 +9,8 @@ export default class SinglePlant extends Component {
       description: "",
       commonDisease: ""
     },
-    editForm: false
+    editForm: false,
+    returnHome: false
   };
   componentDidMount() {
     this.updatePage();
@@ -40,9 +42,21 @@ export default class SinglePlant extends Component {
         this.updatePage();
       });
   };
+  deleteButtonAction = () => {
+    axios
+      .delete(
+        `/api/gardener/${this.props.match.params.plantId}`,
+        this.state.plants
+      )
+      .then(() => {
+        this.setState({ returnHome: true });
+      });
+    this.updatePage();
+  };
   render() {
     return (
       <div>
+        {this.state.returnHome === true ? <Redirect to="/plant" /> : null}
         <div>
           <h1>Plant</h1>
         </div>
@@ -93,6 +107,8 @@ export default class SinglePlant extends Component {
         <br />
         <div>
           <button onClick={this.toggleEditForm}>Edit Plant</button>
+          <br />
+          <button onClick={this.deleteButtonAction}>Delete Plant</button>
         </div>
       </div>
     );
