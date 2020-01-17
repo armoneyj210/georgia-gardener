@@ -20,7 +20,32 @@ export default class Plants extends Component {
   componentDidMount() {
     this.updatePage();
   }
+  handleToggleNewForm = () => {
+    this.setState(state => {
+      return { plantForm: !state.plantForm };
+    });
+  };
   render() {
-    return <div></div>;
+    let plants = this.state.plant.map(plant => {
+      return (
+        <div>
+          <h3>{plant.name}</h3>
+          <div>
+            <img src={plant.image} alt={plant.name} />
+          </div>
+          <p>{plant.description}</p>
+          <h3>Common Disease</h3>
+          <ul>
+            <li>{plant.commonDisease}</li>
+          </ul>
+        </div>
+      );
+    });
+    return (
+      <div>
+        <h1>Plants</h1>
+        <div></div>
+      </div>
+    );
   }
 }
