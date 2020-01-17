@@ -21,6 +21,7 @@ export default class Chemical extends Component {
   updatePage = () => {
     axios.get("/api/chemical").then(res => {
       this.setState({ chemical: res.data });
+      console.log(this.state.chemical);
     });
   };
   componentDidMount() {
@@ -33,10 +34,19 @@ export default class Chemical extends Component {
   };
   handleNewFormChange = evt => {
     const newChemical = { ...this.state.newChemical };
-    newChemical[evt.targer.name] = evt.target.value;
+    newChemical[evt.target.name] = evt.target.value;
     this.setState({ newChemical });
   };
-
+  handleSubmit = evt => {
+    evt.preventDefault();
+    axios.post("/api/chemical", this.state.newChemical).then(() => {
+      this.setState({
+        chemicalForm: false,
+        newChemical: { name: "", description: "" }
+      });
+      this.updatePage();
+    });
+  };
   /* Step 5
    *  The render function manages what is shown in the browser
    *  TODO: delete the jsx returned
@@ -59,8 +69,9 @@ export default class Chemical extends Component {
         <div>
           <button onClick={this.handleToggleNewForm}>Add New Chemical</button>
         </div>
+        <br />
         {this.state.chemicalForm ? (
-          <form>
+          <form onSubmit={this.handleSubmit}>
             <div>
               <label htmlFor="chemical-name">Name:</label>
               <input
@@ -70,6 +81,7 @@ export default class Chemical extends Component {
                 onChange={this.handleNewFormChange}
               />
             </div>
+            <br />
             <div>
               <label htmlFor="chemical-description">Description:</label>
               <input
@@ -79,6 +91,8 @@ export default class Chemical extends Component {
                 onChange={this.handleNewFormChange}
               />
             </div>
+            <br />
+            <input type="submit" value="Create Chemical" />
           </form>
         ) : (
           chemicals
