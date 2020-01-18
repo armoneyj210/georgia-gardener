@@ -68,7 +68,7 @@ export default class Plants extends Component {
         </div>
         <br />
         {this.state.plantForm ? (
-          <form>
+          <form onSubmit={this.handleSubmit}>
             <div>
               <label htmlFor="plant-name">Name:</label>
               <input
