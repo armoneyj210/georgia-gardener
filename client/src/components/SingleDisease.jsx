@@ -20,11 +20,34 @@ export default class SingleDisease extends Component {
   componentDidMount() {
     this.updatePage();
   }
-
+  editFormChange = evt => {
+    const newDisease = { ...this.state.diseases };
+    newDisease[evt.target.name] = evt.target.value;
+    this.setState({ diseases: newDisease });
+  };
   toggleEditForm = () => {
     this.setState(state => {
       return { editForm: !state.editForm };
     });
+  };
+  submitButtonAction = evt => {
+    evt.preventDefaut();
+    axios
+      .put(
+        `/api/disease/${this.props.match.params.diseaseId}`,
+        this.state.diseases
+      )
+      .then(res => {
+        this.setState({ diseases: res.data, editForm: false });
+        this.updatePage();
+      });
+  };
+  deleteButtonAction = () => {
+    axios
+      .delete(`/api/disease/${this.props.match.params.diseaseId}`)
+      .then(() => {
+        this.setState({ returnHome: true });
+      });
   };
   render() {
     return (
@@ -34,19 +57,25 @@ export default class SingleDisease extends Component {
           <h1>Disease</h1>
         </div>
         {this.state.editForm ? (
-          <form>
+          <form onSubmit={this.submitButtonAction}>
             <br />
             <div>
               <label htmlFor="name">Name:</label>
-              <input type="text" name="name" value={this.state.diseases.name} />
+              <input
+                type="text"
+                name="name"
+                value={this.state.diseases.name}
+                onChange={this.editFormChange}
+              />
             </div>
             <br />
             <div>
-              <label htmlFor="description">Descriptionk:</label>
+              <label htmlFor="description">Description:</label>
               <input
                 type="text"
                 name="description"
                 value={this.state.diseases.description}
+                onChange={this.editFormChange}
               />
             </div>
             <br />
@@ -56,6 +85,7 @@ export default class SingleDisease extends Component {
                 type="text"
                 name="image"
                 value={this.state.diseases.image}
+                onChange={this.editFormChange}
               />
             </div>
             <br />
@@ -72,7 +102,7 @@ export default class SingleDisease extends Component {
         )}
         <div>
           <button onClick={this.toggleEditForm}>Edit Disease</button>
-          <button>Delete Disease</button>
+          <button onClick={this.deleteButtonAction}>Delete Disease</button>
         </div>
       </div>
     );
