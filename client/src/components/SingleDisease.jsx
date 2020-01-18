@@ -7,17 +7,69 @@ export default class SingleDisease extends Component {
     diseases: {
       name: "",
       image: "",
-      disease: ""
+      description: ""
     },
     editForm: false,
     returnHome: false
   };
   updatePage = () => {
     axios.get(`/api/disease/${this.props.match.params.diseaseId}`).then(res => {
-      this.setState({ creature: res.data });
+      this.setState({ diseases: res.data });
     });
   };
+  componentDidMount() {
+    this.updatePage();
+  }
+
   render() {
-    return <div></div>;
+    return (
+      <div>
+        {this.state.returnHome ? <Redirect to="/disease" /> : null}
+        <div>
+          <h1>Disease</h1>
+        </div>
+        {this.state.editForm ? (
+          <form>
+            <br />
+            <div>
+              <label htmlFor="name">Name:</label>
+              <input type="text" name="name" value={this.state.diseases.name} />
+            </div>
+            <br />
+            <div>
+              <label htmlFor="description">Descriptionk:</label>
+              <input
+                type="text"
+                name="description"
+                value={this.state.diseases.description}
+              />
+            </div>
+            <br />
+            <div>
+              <label htmlFor="image">Image:</label>
+              <input
+                type="text"
+                name="image"
+                value={this.state.diseases.image}
+              />
+            </div>
+            <br />
+            <input type="submit" value="Save Disease" />
+          </form>
+        ) : (
+          <div>
+            <h1>{this.state.diseases.name}</h1>
+            <br />
+            <img src={this.state.diseases.image} alt="disease-image" />
+            <br />
+            <p>{this.state.diseases.description}</p>
+          </div>
+        )}
+        <div>
+          <button>Edit Disease</button>
+          <button>Delete Disease</button>
+        </div>
+      </div>
+    );
   }
 }
