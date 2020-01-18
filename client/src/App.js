@@ -16,9 +16,7 @@ export default class App extends Component {
             <Route exact path="/disease" component={Diseases} />
             <Route exact path="/plant" component={Plants} />
             <Route path="/plant/:plantId" component={SinglePlant} />{" "}
-            <Route path="/disease/:diseaseId" component={SingleDisease}>
-              />
-            </Route>
+            <Route path="/disease/:diseaseId" component={SingleDisease}></Route>
           </Switch>
         </Router>
       </div>

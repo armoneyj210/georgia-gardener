@@ -21,10 +21,15 @@ export default class SingleDisease extends Component {
     this.updatePage();
   }
 
+  toggleEditForm = () => {
+    this.setState(state => {
+      return { editForm: !state.editForm };
+    });
+  };
   render() {
     return (
       <div>
-        {this.state.returnHome ? <Redirect to="/disease" /> : null}
+        {this.state.returnHome === true ? <Redirect to="/disease" /> : null}
         <div>
           <h1>Disease</h1>
         </div>
@@ -60,13 +65,13 @@ export default class SingleDisease extends Component {
           <div>
             <h1>{this.state.diseases.name}</h1>
             <br />
-            <img src={this.state.diseases.image} alt="disease-image" />
+            <img src={this.state.diseases.image} alt="disease" />
             <br />
             <p>{this.state.diseases.description}</p>
           </div>
         )}
         <div>
-          <button>Edit Disease</button>
+          <button onClick={this.toggleEditForm}>Edit Disease</button>
           <button>Delete Disease</button>
         </div>
       </div>
