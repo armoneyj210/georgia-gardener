@@ -31,7 +31,7 @@ export default class SingleDisease extends Component {
     });
   };
   submitButtonAction = evt => {
-    evt.preventDefaut();
+    evt.preventDefault();
     axios
       .put(
         `/api/disease/${this.props.match.params.diseaseId}`,
