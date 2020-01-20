@@ -13,8 +13,8 @@ export default class App extends Component {
   render() {
     return (
       <div className="App">
-        <NavBar />
         <Router>
+          <NavBar />
           <Switch>
             <Route exact path="/chemical" component={Chemical} />
             <Route exact path="/disease" component={Diseases} />

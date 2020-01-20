@@ -5,17 +5,13 @@ export default class NavBar extends Component {
   render() {
     return (
       <div>
-        <Router>
-          <div>
-            <Link to="/chemical">Chemical</Link>
-          </div>
-          <div>
-            <Link to="/plant">Plants</Link>
-          </div>
-          <div>
-            <Link to="/disease">Diseases</Link>
-          </div>
-        </Router>
+        <div>
+          <Link to="/chemical">Chemical</Link>
+
+          <Link to="/plant">Plants</Link>
+
+          <Link to="/disease">Diseases</Link>
+        </div>
       </div>
     );
   }
