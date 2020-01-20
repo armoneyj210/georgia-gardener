@@ -24,6 +24,7 @@ body {
 }
 img {
   border: 10px solid whitesmoke;
+  width: 15em;
 }
 
 .home-header,
@@ -74,9 +75,22 @@ img {
   text-decoration: none;
   margin-right: 1em;
 }
-.disease-header {
+
+.disease-item {
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+}
+.disease-item2 {
+  float: left;
+}
+.disease-item3 {
+  width: 35%;
+  float: left;
+  line-height: 1.25em;
+  letter-spacing: 2px;
 }
 a {
   text-decoration: none;

@@ -54,7 +54,7 @@ export default class SingleDisease extends Component {
       <div>
         {this.state.returnHome === true ? <Redirect to="/disease" /> : null}
         <div>
-          <h1>Disease</h1>
+          <h1 className="disease-header">Disease</h1>
         </div>
         {this.state.editForm ? (
           <form onSubmit={this.submitButtonAction}>
@@ -93,11 +93,15 @@ export default class SingleDisease extends Component {
           </form>
         ) : (
           <div>
-            <h1>{this.state.diseases.name}</h1>
+            <h1 className="disease-header">{this.state.diseases.name}</h1>
             <br />
-            <img src={this.state.diseases.image} alt="disease" />
+            <img
+              className="disease-header"
+              src={this.state.diseases.image}
+              alt="disease"
+            />
             <br />
-            <p>{this.state.diseases.description}</p>
+            <p className="disease-header">{this.state.diseases.description}</p>
           </div>
         )}
         <div>

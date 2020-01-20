@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 export default class Diseases extends Component {
   state = {
     disease: [],
@@ -47,13 +48,20 @@ export default class Diseases extends Component {
     let diseases = this.state.disease.map(disease => {
       return (
         <div className="disease-header">
-          <div>
-            <img src={disease.image} alt={disease.name} />
+          <Link to={`/disease/${disease._id}`}>
+            <img
+              className="disease-item"
+              src={disease.image}
+              alt={disease.name}
+            />
+          </Link>
+
+          <br />
+          <div className="disease-item2">
+            <h3>{disease.name}</h3>
+            <br />
+            <p className="disease-item3">{disease.description}</p>
           </div>
-          <br />
-          <h3>{disease.name}</h3>
-          <br />
-          <p>{disease.description}</p>
         </div>
       );
     });

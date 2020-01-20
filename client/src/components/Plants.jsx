@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 export default class Plants extends Component {
   state = {
     plant: [],
@@ -50,7 +51,9 @@ export default class Plants extends Component {
         <div className="plant-header">
           <h3>{plant.name}</h3>
           <div>
-            <img src={plant.image} alt={plant.name} />
+            <Link to={`/plant/${plant._id}`}>
+              <img src={plant.image} alt={plant.name} />
+            </Link>
           </div>
           <p>{plant.description}</p>
           <h3>Common Disease</h3>
