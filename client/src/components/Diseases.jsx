@@ -46,7 +46,7 @@ export default class Diseases extends Component {
   render() {
     let diseases = this.state.disease.map(disease => {
       return (
-        <div>
+        <div className="disease-header">
           <div>
             <img src={disease.image} alt={disease.name} />
           </div>
@@ -59,14 +59,14 @@ export default class Diseases extends Component {
     });
     return (
       <div>
-        <h1>Diseases</h1>
+        <h1 className="disease-header">Diseases</h1>
         <div>
           <button onClick={this.handleToggleNewForm}>Add New Disease</button>
         </div>
         <br />
         {this.state.diseaseForm ? (
           <form onSubmit={this.handleSubmit}>
-            <div>
+            <div className="disease-header">
               <label htmlFor="disease-name">Name:</label>
               <input
                 type="text"
@@ -76,7 +76,7 @@ export default class Diseases extends Component {
               />
             </div>
             <br />
-            <div>
+            <div className="disease-header">
               <label htmlFor="disease-description">Description:</label>
               <input
                 type="text"
@@ -86,7 +86,7 @@ export default class Diseases extends Component {
               />
             </div>
             <br />
-            <div>
+            <div className="disease-header">
               <label htmlFor="disease-image">Image:</label>
               <input
                 type="text"

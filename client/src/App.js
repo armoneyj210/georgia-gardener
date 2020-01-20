@@ -14,7 +14,9 @@ export default class App extends Component {
     return (
       <div className="App">
         <Router>
-          <NavBar />
+          <div className="navbar">
+            <NavBar />
+          </div>
           <Switch>
             <Route exact path="/chemical" component={Chemical} />
             <Route exact path="/disease" component={Diseases} />

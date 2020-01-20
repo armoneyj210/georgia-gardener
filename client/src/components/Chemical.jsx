@@ -56,7 +56,7 @@ export default class Chemical extends Component {
   render() {
     let chemicals = this.state.chemical.map(chemical => {
       return (
-        <div>
+        <div className="chemical-header">
           <h3>{chemical.name}</h3>
           <br />
           <p>{chemical.description}</p>
@@ -65,7 +65,7 @@ export default class Chemical extends Component {
     });
     return (
       <div>
-        <h1>Chemicals</h1>
+        <h1 className="chemical-header">Chemicals</h1>
         <div>
           <button onClick={this.handleToggleNewForm}>Add New Chemical</button>
         </div>

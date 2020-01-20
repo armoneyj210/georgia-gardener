@@ -47,7 +47,7 @@ export default class Plants extends Component {
   render() {
     let plants = this.state.plant.map(plant => {
       return (
-        <div>
+        <div className="plant-header">
           <h3>{plant.name}</h3>
           <div>
             <img src={plant.image} alt={plant.name} />
@@ -62,14 +62,14 @@ export default class Plants extends Component {
     });
     return (
       <div>
-        <h1>Plants</h1>
+        <h1 className="plant-header">Plants</h1>
         <div>
           <button onClick={this.handleToggleNewForm}>Add New Plant</button>
         </div>
         <br />
         {this.state.plantForm ? (
           <form onSubmit={this.handleSubmit}>
-            <div>
+            <div className="plant-header">
               <label htmlFor="plant-name">Name:</label>
               <input
                 type="text"
@@ -79,7 +79,7 @@ export default class Plants extends Component {
               />
             </div>
             <br />
-            <div>
+            <div className="plant-header">
               <label htmlFor="plant-description">Description:</label>
               <input
                 type="text"
@@ -89,7 +89,7 @@ export default class Plants extends Component {
               />
             </div>
             <br />
-            <div>
+            <div className="plant-header">
               <label htmlFor="plant-image">Image:</label>
               <input
                 type="text"
@@ -99,7 +99,7 @@ export default class Plants extends Component {
               />
             </div>
             <br />
-            <div>
+            <div className="plant-header">
               <label htmlFor="plant-disease">Common Disease:</label>
               <input
                 type="text"
