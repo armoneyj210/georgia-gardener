@@ -57,9 +57,12 @@ export default class Chemical extends Component {
     let chemicals = this.state.chemical.map(chemical => {
       return (
         <div className="chemical-header">
-          <h3>{chemical.name}</h3>
-          <br />
-          <p>{chemical.description}</p>
+          <div className="chem-item">
+            <div className="chemical-list">
+              <h3>{chemical.name}</h3>
+            </div>
+            <div>{chemical.description}</div>
+          </div>
         </div>
       );
     });

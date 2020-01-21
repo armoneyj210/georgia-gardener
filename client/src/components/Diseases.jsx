@@ -48,19 +48,18 @@ export default class Diseases extends Component {
     let diseases = this.state.disease.map(disease => {
       return (
         <div className="disease-header">
-          <Link to={`/disease/${disease._id}`}>
-            <img
-              className="disease-item"
-              src={disease.image}
-              alt={disease.name}
-            />
-          </Link>
+          <div className="disease-item">
+            <div className="disease-list">
+              <h3>{disease.name}</h3>
+            </div>
 
-          <br />
-          <div className="disease-item2">
-            <h3>{disease.name}</h3>
-            <br />
-            <p className="disease-item3">{disease.description}</p>
+            <Link to={`/disease/${disease._id}`}>
+              <img
+                className="disease-item"
+                src={disease.image}
+                alt={disease.name}
+              />
+            </Link>
           </div>
         </div>
       );

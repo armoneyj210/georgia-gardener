@@ -8,12 +8,18 @@ body {
   width: 100%;
   padding-top: 4em;
 }
+button:focus {
+  outline: none;
+}
+.home-cta:hover {
+  border: 1px solid black;
+}
 .home-cta {
   background-color: chocolate;
   padding: 1em;
   width: 15em;
   margin: 1;
-  margin-left: 15em;
+  margin-left: 16em;
   color: black;
   font-size: 1em;
   border-radius: 0.25em;
@@ -22,6 +28,7 @@ body {
     -1px 1px 0 whitesmoke, 1px 1px whitesmoke;
   border: none;
   font-family: "Kalam", cursive;
+  box-shadow: 2px 2px 2px black;
 }
 img {
   border: 10px solid whitesmoke;
@@ -45,7 +52,8 @@ img {
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
     1px 1px 0 #000;
   margin: 2em;
-  margin-left: 5em;
+  margin-top: -2em;
+  margin-left: 6em;
   color: whitesmoke;
   font-family: "Kalam", cursive;
   font-size: 2em;
@@ -67,6 +75,8 @@ img {
 }
 .nav-container {
   width: 100%;
+  font-family: "Kalam", cursive;
+  font-size: 1.15em;
   display: flex;
   height: 4em;
   align-items: center;
@@ -86,20 +96,15 @@ img {
 }
 
 .disease-item {
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  display: flex;
-  flex-direction: row;
-}
-.disease-item2 {
   float: left;
+  margin: 1em;
 }
-.disease-item3 {
-  width: 35%;
-  float: left;
-  line-height: 1.25em;
-  letter-spacing: 2px;
+.disease-desc {
+  font-family: "Kalam", cursive;
+  color: whitesmoke;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+  font-size: 1.25em;
 }
 a {
   text-decoration: none;
@@ -109,3 +114,17 @@ a {
 /* .chemical-header {
   background-color: #418047;
 } */
+.plant-list,
+.disease-list,
+.chemical-list {
+  margin-top: -3em;
+}
+.plant-item {
+  float: left;
+  margin: 1em;
+}
+.chem-item {
+  float: left;
+  margin: 1em;
+  width: 25%;
+}

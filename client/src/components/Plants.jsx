@@ -48,17 +48,16 @@ export default class Plants extends Component {
   render() {
     let plants = this.state.plant.map(plant => {
       return (
-        <div className="plant-header">
-          <h3>{plant.name}</h3>
-          <div>
-            <Link to={`/plant/${plant._id}`}>
-              <img src={plant.image} alt={plant.name} />
-            </Link>
-          </div>
-          <p>{plant.description}</p>
-          <h3>Common Disease</h3>
-          <div>
-            <h2>{plant.disease}</h2>
+        <div className="plant-header ">
+          <div className="plant-list">
+            <div className="plant-item">
+              <div>
+                <h3>{plant.name}</h3>
+              </div>
+              <Link to={`/plant/${plant._id}`}>
+                <img src={plant.image} alt={plant.name} />
+              </Link>
+            </div>
           </div>
         </div>
       );

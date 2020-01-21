@@ -94,14 +94,14 @@ export default class SingleDisease extends Component {
         ) : (
           <div>
             <h1 className="disease-header">{this.state.diseases.name}</h1>
-            <br />
+
             <img
               className="disease-header"
               src={this.state.diseases.image}
               alt="disease"
             />
-            <br />
-            <p className="disease-header">{this.state.diseases.description}</p>
+
+            <p className="disease-desc">{this.state.diseases.description}</p>
           </div>
         )}
         <div>
