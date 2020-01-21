@@ -4,9 +4,7 @@ const PlantSchema = new mongoose.Schema({
   name: String,
   image: String,
   description: String,
-  diseases: {
-    name: ""
-  }
+  disease: String
 });
 
 const plantCollection = mongoose.model("Plant", PlantSchema);

@@ -13,7 +13,7 @@ body {
   padding: 1em;
   width: 15em;
   margin: 1;
-  margin-left: 10em;
+  margin-left: 15em;
   color: black;
   font-size: 1em;
   border-radius: 0.25em;
@@ -21,6 +21,7 @@ body {
   text-shadow: -1px -1px 0 whitesmoke, 1px -1px 0 whitesmoke,
     -1px 1px 0 whitesmoke, 1px 1px whitesmoke;
   border: none;
+  font-family: "Kalam", cursive;
 }
 img {
   border: 10px solid whitesmoke;
@@ -31,16 +32,23 @@ img {
 .plant-header,
 .chemical-header,
 .disease-header {
+  font-family: "Kalam", cursive;
   margin: 2.5em;
   color: whitesmoke;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
     1px 1px 0 #000;
 }
+.home-header {
+  font-size: 3em;
+}
 .home-header2 {
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
     1px 1px 0 #000;
-  margin: 4.5em;
+  margin: 2em;
+  margin-left: 5em;
   color: whitesmoke;
+  font-family: "Kalam", cursive;
+  font-size: 2em;
 }
 .home-container {
   text-align: left;
@@ -65,10 +73,11 @@ img {
   justify-content: space-between;
   flex-direction: row;
   background: whitesmoke;
-  padding: 0 12px;
+  padding: 0 12px 0 0;
   position: fixed;
   top: 0;
   left: 0;
+  box-shadow: 10px 5px 5px #418047;
 }
 .navbar-item {
   padding: 1em;
@@ -97,3 +106,6 @@ a {
   color: black;
   font-weight: 700;
 }
+/* .chemical-header {
+  background-color: #418047;
+} */

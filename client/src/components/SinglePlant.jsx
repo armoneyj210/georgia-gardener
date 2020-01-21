@@ -7,7 +7,7 @@ export default class SinglePlant extends Component {
       name: "",
       image: "",
       description: "",
-      commonDisease: ""
+      disease: ""
     },
     editForm: false,
     returnHome: false
@@ -58,13 +58,15 @@ export default class SinglePlant extends Component {
       <div>
         {this.state.returnHome === true ? <Redirect to="/plant" /> : null}
         <div>
-          <h1>Plant</h1>
+          <h1 className="plant-header">Plant</h1>
         </div>
         {this.state.editForm ? (
           <form onSubmit={this.submitButtonAction}>
             <br />
             <div>
-              <label htmlFor="name">Name:</label>
+              <label className="plant-header" htmlFor="name">
+                Name:
+              </label>
               <input
                 type="text"
                 name="name"
@@ -74,7 +76,9 @@ export default class SinglePlant extends Component {
             </div>
             <br />
             <div>
-              <label htmlFor="description">Description:</label>
+              <label className="plant-header" htmlFor="description">
+                Description:
+              </label>
               <input
                 type="text"
                 name="description"
@@ -84,7 +88,9 @@ export default class SinglePlant extends Component {
             </div>
             <br />
             <div>
-              <label htmlFor="image">Image:</label>
+              <label className="plant-header" htmlFor="image">
+                Image:
+              </label>
               <input
                 type="text"
                 name="image"
@@ -93,15 +99,32 @@ export default class SinglePlant extends Component {
               />
             </div>
             <br />
+            <div>
+              <label className="plant-header" htmlFor="diseases">
+                Diseases:
+              </label>
+              <input
+                type="text"
+                name="disease"
+                value={this.state.plants.disease}
+                onChange={this.editFormChange}
+              />
+            </div>
             <input type="submit" value="Save Plant" />
           </form>
         ) : (
           <div>
-            <h1>{this.state.plants.name}</h1>
+            <h1 className="plant-header">{this.state.plants.name}</h1>
             <br />
-            <img src={this.state.plants.image} alt="plant" />
+            <img
+              className="plant-header"
+              src={this.state.plants.image}
+              alt="plant"
+            />
             <br />
-            <p>{this.state.plants.description}</p>
+            <p className="plant-header">{this.state.plants.description}</p>
+            <br />
+            <p className="plant-header">{this.state.plants.commonDisease} </p>
           </div>
         )}
         <br />

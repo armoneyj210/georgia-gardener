@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Logo from "../images/twitter_header_photo_2.png";
+import Logo from "../images/facebook_cover_photo_1.png";
 export default class NavBar extends Component {
   render() {
     return (
@@ -14,9 +14,11 @@ export default class NavBar extends Component {
           <li className="navbar-item">
             <a href="/disease">Diseases</a>
           </li>
+          ||
           <li className="navbar-item">
             <a href="/plant">Plants</a>
           </li>
+          ||
           <li className="navbar-item">
             <a href="/chemical">Chemicals</a>
           </li>

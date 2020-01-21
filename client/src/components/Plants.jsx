@@ -8,7 +8,7 @@ export default class Plants extends Component {
       name: "",
       image: "",
       description: "",
-      commonDisease: ""
+      disease: ""
     },
     plantForm: false
   };
@@ -36,14 +36,14 @@ export default class Plants extends Component {
       this.setState({
         plantForm: false,
         newPlant: {
-          nmae: "",
+          name: "",
           image: "",
           description: "",
-          commonDisease: ""
+          disease: ""
         }
       });
-      this.updatePage();
     });
+    this.updatePage();
   };
   render() {
     let plants = this.state.plant.map(plant => {
@@ -57,9 +57,9 @@ export default class Plants extends Component {
           </div>
           <p>{plant.description}</p>
           <h3>Common Disease</h3>
-          <ul>
-            <li>{plant.commonDisease}</li>
-          </ul>
+          <div>
+            <h2>{plant.disease}</h2>
+          </div>
         </div>
       );
     });
@@ -106,8 +106,8 @@ export default class Plants extends Component {
               <label htmlFor="plant-disease">Common Disease:</label>
               <input
                 type="text"
-                name="commonDisease"
-                value={this.state.newPlant.commonDisease}
+                name="disease"
+                value={this.state.newPlant.disease}
                 onChange={this.handleNewFormChange}
               />
             </div>
