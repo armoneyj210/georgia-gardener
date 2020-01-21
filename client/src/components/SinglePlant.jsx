@@ -115,7 +115,7 @@ export default class SinglePlant extends Component {
         ) : (
           <div>
             <h1 className="plant-header">{this.state.plants.name}</h1>
-            <br />
+
             <img
               className="plant-header"
               src={this.state.plants.image}
