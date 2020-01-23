@@ -89,7 +89,7 @@ export default class SingleDisease extends Component {
               />
             </div>
             <br />
-            <input type="submit" value="Save Disease" />
+            <input className="add-submit" type="submit" value="Save Disease" />
           </form>
         ) : (
           <div>

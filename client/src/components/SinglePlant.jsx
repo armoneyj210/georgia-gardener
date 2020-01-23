@@ -110,7 +110,7 @@ export default class SinglePlant extends Component {
                 onChange={this.editFormChange}
               />
             </div>
-            <input type="submit" value="Save Plant" />
+            <input className="add-submit" type="submit" value="Save Plant" />
           </form>
         ) : (
           <div>
