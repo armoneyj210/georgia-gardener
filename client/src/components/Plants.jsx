@@ -113,11 +113,11 @@ export default class Plants extends Component {
             <br />
             <div className="plant-header">
               <label htmlFor="plant-disease">Common Disease:</label>
-              {/* <select name="disease" onChange={this.handleNewFormChange}>
+              <select name="disease" onChange={this.handleNewFormChange}>
                 {this.state.disease.map(disease => (
                   <option value={disease.name}>{disease.name}</option>
                 ))}
-              </select> */}
+              </select>
             </div>
             <br />
             <input className="add-submit" type="submit" value="Create Plant" />
