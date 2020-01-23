@@ -100,7 +100,7 @@ export default class Chemical extends Component {
             </div>
             <br />
             <input
-              className="add-submit"
+              className="add-submit "
               type="submit"
               value="Create Chemical"
             />
