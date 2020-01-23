@@ -76,7 +76,9 @@ export default class Chemical extends Component {
         {this.state.chemicalForm ? (
           <form onSubmit={this.handleSubmit}>
             <div>
-              <label htmlFor="chemical-name">Name:</label>
+              <label className="chemical-header" htmlFor="chemical-name">
+                Name:
+              </label>
               <input
                 type="text"
                 name="name"
@@ -86,7 +88,9 @@ export default class Chemical extends Component {
             </div>
             <br />
             <div>
-              <label htmlFor="chemical-description">Description:</label>
+              <label className="chemical-header" htmlFor="chemical-description">
+                Description:
+              </label>
               <input
                 type="text"
                 name="description"
@@ -95,7 +99,11 @@ export default class Chemical extends Component {
               />
             </div>
             <br />
-            <input type="submit" value="Create Chemical" />
+            <input
+              className="add-submit"
+              type="submit"
+              value="Create Chemical"
+            />
           </form>
         ) : (
           chemicals
