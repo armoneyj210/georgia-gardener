@@ -103,7 +103,11 @@ export default class Diseases extends Component {
               />
             </div>
             <br />
-            <input type="submit" value="Create Disease" />
+            <input
+              className="add-submit"
+              type="submit"
+              value="Create Disease"
+            />
           </form>
         ) : (
           diseases

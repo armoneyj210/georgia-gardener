@@ -124,7 +124,8 @@ export default class SinglePlant extends Component {
             <br />
             <p className="plant-header">{this.state.plants.description}</p>
             <br />
-            <p className="plant-header">{this.state.plants.commonDisease} </p>
+            <h2 className="plant-header">Common Disease</h2>
+            <h3 className="plant-header">{this.state.plants.disease} </h3>
           </div>
         )}
         <br />

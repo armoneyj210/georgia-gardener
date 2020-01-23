@@ -4,6 +4,11 @@ import { Link } from "react-router-dom";
 export default class Plants extends Component {
   state = {
     plant: [],
+    disease: {
+      name: "",
+      image: "",
+      description: ""
+    },
     newPlant: {
       name: "",
       image: "",
@@ -12,9 +17,13 @@ export default class Plants extends Component {
     },
     plantForm: false
   };
+
   updatePage = () => {
     axios.get("/api/gardener").then(res => {
       this.setState({ plant: res.data });
+    });
+    axios.get("/api/disease").then(res => {
+      this.setState({ disease: res.data });
     });
   };
   componentDidMount() {
@@ -45,6 +54,7 @@ export default class Plants extends Component {
     });
     this.updatePage();
   };
+
   render() {
     let plants = this.state.plant.map(plant => {
       return (
@@ -103,15 +113,14 @@ export default class Plants extends Component {
             <br />
             <div className="plant-header">
               <label htmlFor="plant-disease">Common Disease:</label>
-              <input
-                type="text"
-                name="disease"
-                value={this.state.newPlant.disease}
-                onChange={this.handleNewFormChange}
-              />
+              <select name="disease" onChange={this.handleNewFormChange}>
+                {this.state.disease.map(disease => (
+                  <option value={disease.name}>{disease.name}</option>
+                ))}
+              </select>
             </div>
             <br />
-            <input type="submit" value="Create Plant" />
+            <input className="add-submit" type="submit" value="Create Plant" />
           </form>
         ) : (
           plants

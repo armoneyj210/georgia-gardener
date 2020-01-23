@@ -8,6 +8,25 @@ body {
   width: 100%;
   padding-top: 4em;
 }
+button,
+.add-submit {
+  padding: 1em;
+  width: 15em;
+  border-radius: 0.25em;
+  font-weight: 800;
+  text-shadow: -1px -1px 0 whitesmoke, 1px -1px 0 whitesmoke,
+    -1px 1px 0 whitesmoke, 1px 1px whitesmoke;
+  border: none;
+  font-size: 0.75em;
+  font-family: "Kalam", cursive;
+  box-shadow: 2px 2px 2px black;
+  margin: 1em;
+  margin-bottom: 2em;
+}
+button:hover,
+.add-submit:hover {
+  background-color: chocolate;
+}
 button:focus {
   outline: none;
 }
@@ -33,6 +52,7 @@ button:focus {
 img {
   border: 10px solid whitesmoke;
   width: 15em;
+  height: 15em;
 }
 
 .home-header,
